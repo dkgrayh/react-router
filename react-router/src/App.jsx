@@ -5,6 +5,7 @@ import BookList from './components/BookList';
 import Book from './components/Book';
 import NewBook from './components/NewBook';
 import NotFound from './components/NotFound';
+import BookLayout from './BookLayout';
 function App() {
   return (
     <>
@@ -27,16 +28,22 @@ function App() {
         />
         <Route
           path="/books"
-          element={<BookList />}
-        />
-        <Route
-          path="/books/:id"
-          element={<Book />}
-        />
-        <Route
-          path="/books/new"
-          element={<NewBook />}
-        />
+          element={<BookLayout />}
+        >
+          <Route
+            index
+            element={<BookList />}
+          />
+          <Route
+            path=":id"
+            element={<Book />}
+          />
+          <Route
+            path="new"
+            element={<NewBook />}
+          />
+        </Route>
+
         <Route
           path="*"
           element={<NotFound />}
