@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import BookList from './components/BookList';
@@ -7,8 +7,16 @@ import NewBook from './components/NewBook';
 import NotFound from './components/NotFound';
 import BookLayout from './BookLayout';
 function App() {
+  const location = useLocation();
+  console.log(location);
   return (
     <>
+      <Routes>
+        <Route
+          path="/books"
+          element={<h1>Extra Content</h1>}
+        />
+      </Routes>
       <nav>
         <ul>
           <li>
